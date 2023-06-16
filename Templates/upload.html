@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+<style>
+select,input{
+    color: #00f ;
+    font-weight: lighter;
+    font-family: Arial, Helvetica, sans-serif;
+    width: auto;
+    padding: 0px 5px;
+    height: 30px;
+    font-size: 15px;
+    border: none;
+    background: none;
+    outline: none;
+}
+.bar
+{
+margin: 0px;
+padding: 15px;
+background-color:rgb(243, 6, 6, 0);
+/*opacity:0;*/
+font-family:'Times New Roman', Times, serif;
+font-size:25px;
+}
+a
+{
+color:#00f;
+float:right;
+text-decoration:none;
+padding-right:20px;
+}
+a:hover{
+    padding: 3.5px;
+    background: greenyellow;
+
+}
+h1{
+    color:rgb(243, 6, 6);
+    font-family:'Times New Roman', Times, serif;
+    font-size:30
+}
+h2{
+    color:rgb(243, 6, 6);
+    font-family: 'Times New Roman', Times, serif;
+    font-size:30px;
+    margin-bottom: 10px;
+}
+.my-cta-button{
+
+    font-size: 20px;
+    color: rgb(15, 15, 15); 
+    border: 1px solid #0e0e0ccf;
+    padding: 3.5px;
+   
+    cursor: pointer; 
+}
+.button {
+
+    border: 0;
+    outline: none;
+    padding: 0.6em;
+    font-size: 1em;
+    font-weight: bold;
+    color:white;
+    text-transform: uppercase;
+    background: #000 ;
+    margin-top: 1.1em;
+    border-radius: 25px;
+}
+.button:hover, .button:focus {
+    background: #2980b9;
+    letter-spacing: 2px;
+}
+.button-block {
+	width: 170px;
+    display: block;}
+.my-cta-button:hover{
+    border: 2px solid #faae42;
+    padding: 3.5px;
+    background: #FAAE42;
+}
+p
+{
+color:white;
+font-family: 'Times New Roman', Times, serif;
+font-size:30px;
+}
+label{font-size:18px}
+</style>
+</head>
+
+<body style="background-image: url({{ url_for ('static', filename = 'OIP.jpg') }});
+background-size:cover">
+    <div class="bar">    
+      <a href="/feedback">Feedback</a>
+      <a href="/home">Home</a>
+     <br>
+        </div>
+    <div class="container">
+            <center> <div id="content" style="margin-top:2em">
+            <h2><center>Food Demand Forecasting</center></h2>
+                 <form action="{{ url_for('predict') }}" method="POST">
+     <label><b>Homepage feature:</b></label><br>
+     <select id="homepage_featured" name="homepage_featured" style="width:170px">
+      <!--<option value="">homepage_featured</option>-->
+         <option value="1">Yes</option>
+         <option value="0">No</option><br>
+       </select><br><br>
+      <label><b>Email for Promotion:</b></label><br>
+     <select id="emailer_for_promotion" style="width:170px" name="emailer_for_promotion">
+      <!--<option value="">emailer_for_promotion</option>-->
+         <option value="1">Yes</option>
+         <option value="0">No</option>
+       </select><br><br>
+     
+     <label><b>Operational Area:</b></label><br>
+     <input class="form-input" required style="width:170px" type="number" min="2" max="7" step="any" name="op_area" placeholder="Enter the op_area(2-7)"><br><br>
+     <label><b>Cuisine:</b></label><br>
+     <select id="cuisine" style="width:170px" name="cuisine">
+     <!--<option value="">Cuisine</option>-->
+         <option value="0">Continental</option>
+         <option value="1">Indian</option>
+         <option value="2">Italian</option>
+         <option value="3">Thai</option>
+     
+       </select><br><br>
+       <label><b>City Code:</b></label><br>
+       <input class="form-input" required style="width:170px" min="456" max="713" type="number" name="city_code" placeholder="Enter city_code"><br><br>
+     <label><b>Region Code:</b></label><br>
+     <!--<input class="form-input" required style="width:170px" type="text" name="region_code" placeholder="Enter region_code"><br><br>-->
+     <select name="region_code" id="region_code" style="width:170px">
+         <option>56</option>
+         <option>34</option>
+         <option>77</option>
+         <option>85</option>
+         <option>23</option>
+         <option>71</option>
+         <option>35</option>
+         <option>93</option>
+     </select><br><br>
+     <label><b>Category:</b></label><br>
+     <select id="category" name="category" style="width:170px">
+     <!--<option value="">Category</option>-->
+         <option value="0">Beverages</option>
+         <option value="1">Biryani</option>
+         <option value="2">Desert</option>
+         <option value="3">Extras</option>
+         <option value="4">Fish</option>
+         <option value="5">Other Snacks</option>
+         <option value="6">Pasta</option>
+         <option value="7">Pizza</option>
+         <option value="8">Rice Bowl</option>
+         <option value="9">Salad</option>
+         <option value="10">Sandwich</option>
+         <option value="11">Seafood</option>
+         <option value="12">Soup</option>
+         <option value="13">Starters</option>
+       </select><br><br>
+
+                     <center><button class="button button-block">Submit</button></center>
+                 </form>
+     
+         <br>
+          <h1 class="predict">{{ prediction_text }}</h1>
+            </div></center>
+         </div>
+     </body>
+</body></html>

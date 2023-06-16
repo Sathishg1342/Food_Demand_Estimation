@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+<style>
+input,textarea{
+    color: #00f ;
+    font-weight: lighter;
+    font-family: Arial, Helvetica, sans-serif;
+    width: auto;
+    padding: 0px 5px;
+    /*height: 30px;*/
+    font-size: 15px;
+    /*border: none;*/
+    background: none;
+    outline: none;
+}
+.bar
+{
+margin: 0px;
+padding: 15px;
+background-color:rgb(243, 6, 6,0);
+/* opacity:0.6; */
+font-family:'Times New Roman', Times, serif;
+font-size:25px;
+}
+a
+{
+color:#00f;
+float:right;
+text-decoration:none;
+padding-right:20px;
+}
+a:hover{
+    padding: 3.5px;
+    background: greenyellow;
+
+}
+h1{
+    color:rgb(243, 6, 6);
+    font-family:'Times New Roman', Times, serif;
+    font-size:30;
+}
+h2{
+    color:rgb(243, 6, 6);
+    font-family: 'Times New Roman', Times, serif;
+    font-size:60;
+    margin-bottom: 10px;
+
+}
+.my-cta-button{
+
+    font-size: 20px;
+    color: rgb(15, 15, 15);
+    border: 1px solid #0e0e0ccf;
+    padding: 3.5px;
+    cursor: pointer;
+}
+.my-cta-button:hover{
+    border: 2px solid #faae42;
+    padding: 3.5px;
+    background: #FAAE42;
+}
+.button {
+
+    border: 0;
+    outline: none;
+    padding: 0.6em;
+    font-size: 1em;
+    font-weight: bold;
+    color:white;
+    text-transform: uppercase;
+    background: #000 ;
+    margin-top: 1.1em;
+    border-radius: 25px;
+}
+.button:hover, .button:focus {
+    background: #2980b9;
+    letter-spacing: 2px;
+}
+.button-block {
+	width: 20%;
+    display: block;
+}
+p{
+color:black;
+font-family: 'Times New Roman', Times, serif;
+font-size:20px;
+}
+</style>
+</head>
+<body style="background-image: url({{ url_for ('static', filename = 'OIP.jpg') }});
+background-size:cover">
+<div class="bar">
+    <a href="/pred">Predict</a><a href="/home">Home</a><br>
+</div>
+<div class="container">
+    <div id="content" style="margin-top:2em;text-align:center;">
+        <h2 style="font-size:60px">Food Demand Forecasting</h2>
+        <p>If you have faced any tragedy before on estimation, you can share your experience.</p>
+        <form action="{{url_for('submit')}}" style="font-size:20px" method="POST">
+            <label for="Name"><b>Enter your name:</b></label><br>
+            <input type="text" id="Name" name="Name" style="width:400px;height:20px" placeholder="Your Name" required><br><br>
+            <label for="email"><b>Email Id:</b></label><br>
+            <input type="email" id="email" name="email" style="width:400px;height:20px" placeholder="Ex: youremailid@abcde.com" required><br><br>
+            <label for="complaint"><b>Enter the problem you ar facing on that site:</b></label><br>
+            <textarea id="complaint" name="complaint" style="width:400px" rows="5" placeholder="Mention your problem here." required></textarea><br><br>
+            <!--<input type="submit" style="background-color:black;color:white;font-weight:bold;" class="btn" value="Submit">-->
+            <center><button class="button button-block">Submit</button></center>
+        </form>
+    </div></div>
+</body>
+</html>
