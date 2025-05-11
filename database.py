@@ -29,5 +29,5 @@ def delete_from_db(email):
     else:delete_from_db(email)
 #delete_from_db('abcd@gmail.com')
 #c.execute('delete from feedback')
-conn.commit()
-for i in c.execute("""select * from feedback"""): print(i)
+# conn.commit()
+# for i in c.execute("""select * from feedback"""): print(i)

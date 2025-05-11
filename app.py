@@ -35,4 +35,4 @@ def predict():
     output=int(prediction[0])
     return render_template('upload.html', prediction_text='Number of orders:'+str(output)+"(Aprox..)")
 if __name__ == '__main__':
-      app.run(debug=True,port=5000)
+      app.run(debug=True,port=8000)
